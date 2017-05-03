@@ -1,0 +1,62 @@
+//if king attempting to be castled
+        if (pieceAttemptingToBeMoved.getName().charAt(1) == 'K' && (initialRank - finalRank) == 0
+                && ((initialFile - finalFile) == 2 || (initialFile - finalFile) == -2)
+                && !pieceAttemptingToBeMoved.hasthisMoved()) {
+            King king = (King) pieceAttemptingToBeMoved;
+            String color = "white";
+
+            if ((initialFile - finalFile) == 2) {
+                index = returnIndexOfPieceLocatedAt(0, 0);
+            } else if ((initialFile - finalFile) == -2) {
+                index = returnIndexOfPieceLocatedAt(7, 0);
+            }
+
+            if (index != -1) {
+                ChessPiece piece = returnChessPieceLocatedAtIndex(index);
+                if (piece.getName().charAt(1) == 'R') {
+                    if (!piece.hasthisMoved())
+                        king.castling(initialFile, finalFile, finalRank, color, piece);
+                }
+            }
+
+
+
+        // dont overwrite board if pawn is being promoted
+        // overwrite will occur in Pawn.promote
+        if (!(pieceAttemptingToBeMoved.getName().charAt(1) == 'p' && initialRank == 6 && finalRank == 7)) {
+        }
+
+
+
+
+                // if the piece to be moved is a king, make sure the move will not place the king in check
+                //if (this.blackKingIsInCheck) {
+                //    if (this.wouldKingStillBeInCheck(initialFile, initialRank, finalFile, finalRank, pieceAttemptingToBeMoved) == true) {
+                //        return;
+                //    }
+                //}
+
+
+
+                //if king attempting to be castled
+                        if (pieceAttemptingToBeMoved.getName().charAt(1) == 'K' && (initialRank - finalRank) == 0
+                                && ((initialFile - finalFile) == 2 || (initialFile - finalFile) == -2)
+                                && !pieceAttemptingToBeMoved.hasthisMoved()) {
+                            King king = (King) pieceAttemptingToBeMoved;
+                            String color = "black";
+
+                            if ((initialFile - finalFile) == 2) {
+                                index = returnIndexOfPieceLocatedAt(0, 7);
+                            } else if ((initialFile - finalFile) == -2) {
+                                index = returnIndexOfPieceLocatedAt(7, 7);
+                            }
+
+                            if (index != -1) {
+                                ChessPiece piece = returnChessPieceLocatedAtIndex(index);
+                                if (piece.getName().charAt(1) == 'R') {
+                                    if (!piece.hasthisMoved())
+                                        king.castling(initialFile, finalFile, finalRank, color, piece);
+                                }
+                            }
+
+                        }

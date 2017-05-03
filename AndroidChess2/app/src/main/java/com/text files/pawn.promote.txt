@@ -1,0 +1,46 @@
+
+        chessBoard.removeThePawnLocatedAt(this.getFile(), this.getRank());
+        chessBoard.clearTheBoardSpaceLocatedAt(this.getFile(), this.getRank());
+
+        switch (input) {
+            case "Q":
+                Queen queen = new Queen(color, finalFile, finalRank);
+                chessBoard.addChessPieceToArray(queen);
+                chessBoard.editBoard(finalFile, finalRank, queen.getName());
+                /*System.out.println("Queen stored at: " + finalFile + finalRank);
+                System.out.println(board[finalRank][finalFile]);
+                System.out.println(queen.getName());*/
+                return;
+            case "N":
+                Knight knight = new Knight(color, finalFile, finalRank);
+                chessBoard.addChessPieceToArray(knight);
+                chessBoard.editBoard(finalFile, finalRank, knight.getName());
+                /*System.out.println("Knight stored at: " + finalFile + finalRank);
+                System.out.println(board[finalRank][finalFile]);
+                System.out.println(knight.getName());*/
+                return;
+            case "R":
+                Rook rook = new Rook(color, finalFile, finalRank);
+                chessBoard.addChessPieceToArray(rook);
+                chessBoard.editBoard(finalFile, finalRank, rook.getName());
+                /*System.out.println("Rook stored at: " + finalFile + finalRank);
+                System.out.println(board[finalRank][finalFile]);
+                System.out.println(rook.getName());*/
+                return;
+            case "B":
+                Bishop bishop = new Bishop(color, finalFile, finalRank);
+                chessBoard.addChessPieceToArray(bishop);
+                chessBoard.editBoard(finalFile, finalRank, bishop.getName());
+               /* System.out.println("Bishop stored at: " + finalFile + finalRank);
+                System.out.println(board[finalRank][finalFile]);
+                System.out.println(bishop.getName());*/
+                return;
+        }
+        /*
+        //if nothing else make a queen
+        Queen queen = new Queen(color, finalFile, finalRank);
+        chessBoard.addChessPieceToArray(queen);
+        chessBoard.editBoard(finalFile, finalRank, queen.getName());
+        /*System.out.println("Queen stored at: " + finalFile + finalRank);
+        System.out.println(board[finalRank][finalFile]);
+        System.out.println(queen.getName());*/

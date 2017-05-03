@@ -1,0 +1,125 @@
+char player;
+        if(gameScreen.getItsWhitesMove()){
+            player = 'w';
+        }
+        else{
+            player = 'b';
+        }
+        // cycle through all pieces of current players color pieces
+        for(ChessPiece piece: this.chessPieceArray){
+            if(piece.getName().charAt(0) == player){
+                int currentFile = piece.getFile();
+                int currentRank = piece.getRank();
+                // cycle through every possible move
+                // cycle through all files
+                for(int i = 0; i < 8; i++){
+                    // cycle through all ranks
+                    for(int j = 0; j < 8; j++){
+                        if(piece instanceof Pawn){
+                            if(((Pawn) piece).canMoveWithoutEditingHasMoved(currentFile, currentRank, i, j)){
+                                if(true/*this.wouldWhiteKingStillBeInCheck(currentFile, currentRank, i, j, piece) == false*/){
+                                    // execute the move by feeding it into the Game class
+                                    this.ProcessMove(currentFile, currentRank, i, j);
+                                    piece.thisPieceHasMoved();
+                                    // update the chess board
+                                    try {
+                                        gameScreen.updateChessBoard(gameScreen.getItsWhitesMove(), currentFile, currentRank, i, j);
+                                    }
+                                    catch (FileNotFoundException e) {
+                                        e.printStackTrace();
+                                    }                    // now it's blacks turn
+                                    if(player == 'w'){
+                                        gameScreen.setItsWhitesMove(false);
+                                        // update the textView
+                                        gameScreen.whoseMoveIsIt.setText("Black to move");
+                                    }
+                                    else{
+                                        gameScreen.setItsWhitesMove(true);
+                                        // update the textView
+                                        gameScreen.whoseMoveIsIt.setText("White to move");
+                                    }
+                                    return;
+                                }
+                            }
+                        }
+                        else if(piece instanceof King){
+                            if(((King) piece).canMoveWithoutEditingHasMoved(currentFile, currentRank, i, j)){
+                                if(true/*this.wouldWhiteKingStillBeInCheck(currentFile, currentRank, i, j, piece) == false*/){
+                                    // execute the move by feeding it into the Game class
+                                    this.ProcessMove(currentFile, currentRank, i, j);
+                                    piece.thisPieceHasMoved();
+                                    // update the chess board
+                                    try {
+                                        gameScreen.updateChessBoard(gameScreen.getItsWhitesMove(), currentFile, currentRank, i, j);
+                                    } catch (FileNotFoundException e) {
+                                        e.printStackTrace();
+                                    }                    // now it's blacks turn
+                                    if(player == 'w'){
+                                        gameScreen.setItsWhitesMove(false);
+                                        // update the textView
+                                        gameScreen.whoseMoveIsIt.setText("Black to move");
+                                    }
+                                    else{
+                                        gameScreen.setItsWhitesMove(true);
+                                        // update the textView
+                                        gameScreen.whoseMoveIsIt.setText("White to move");
+                                    }
+                                    return;
+                                }
+                            }
+                        }
+                        else if(piece instanceof Rook){
+                            if(((Rook) piece).canMoveWithoutEditingHasMoved(currentFile, currentRank, i, j)){
+                                if(true/*this.wouldWhiteKingStillBeInCheck(currentFile, currentRank, i, j, piece) == false*/){
+                                    // execute the move by feeding it into the Game class
+                                    this.ProcessMove(currentFile, currentRank, i, j);
+                                    piece.thisPieceHasMoved();
+                                    // update the chess board
+                                    try {
+                                        gameScreen.updateChessBoard(gameScreen.getItsWhitesMove(), currentFile, currentRank, i, j);
+                                    } catch (FileNotFoundException e) {
+                                        e.printStackTrace();
+                                    }                    // now it's blacks turn
+                                    if(player == 'w'){
+                                        gameScreen.setItsWhitesMove(false);
+                                        // update the textView
+                                        gameScreen.whoseMoveIsIt.setText("Black to move");
+                                    }
+                                    else{
+                                        gameScreen.setItsWhitesMove(true);
+                                        // update the textView
+                                        gameScreen.whoseMoveIsIt.setText("White to move");
+                                    }
+                                    return;
+                                }
+                            }
+                        }
+                        else if(piece.canMove(currentFile, currentRank, i, j)){
+                            if(true/*this.wouldWhiteKingStillBeInCheck(currentFile, currentRank, i, j, piece) == false*/){
+                                // execute the move by feeding it into the Game class
+                                this.ProcessMove(currentFile, currentRank, i, j);
+                                piece.thisPieceHasMoved();
+                                // update the chess board
+                                try {
+                                    gameScreen.updateChessBoard(gameScreen.getItsWhitesMove(), currentFile, currentRank, i, j);
+                                } catch (FileNotFoundException e) {
+                                    e.printStackTrace();
+                                }                    // now it's blacks turn
+                                if(player == 'w'){
+                                    gameScreen.setItsWhitesMove(false);
+                                    // update the textView
+                                    gameScreen.whoseMoveIsIt.setText("Black to move");
+                                }
+                                else{
+                                    gameScreen.setItsWhitesMove(true);
+                                    // update the textView
+                                    gameScreen.whoseMoveIsIt.setText("White to move");
+                                }
+                                return;
+                            }
+                        }
+                        //Log.e("Game.updateAttackSpaces", currentFile+""+currentRank + "->" + i+""+j + " = " + piece.canMove(currentFile, currentRank, i, j));
+                    }
+                }
+            }
+        }

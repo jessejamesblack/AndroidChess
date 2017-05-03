@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="prev_btn" type="id" />
+    <item name="next_btn" type="id" />
+    <item name="previousButton" type="id" />
+    <item name="listview" type="id" />
+    <item name="nextButton" type="id" />
+    <item name="listView" type="id" />
+</resources>

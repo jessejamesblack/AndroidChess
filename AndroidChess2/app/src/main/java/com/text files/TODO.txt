@@ -1,0 +1,19 @@
+//TODO:
+// problems             : auto move makes illegal moves with pawn
+//
+// due                  : 04/02 @ 11, 53 hours
+//
+-----
+04/30
+g: ChessBoard.whiteIsInCheck (Done), ChessBoard.blackIsInCheck (Done), ChessBoard.whiteHasWon, ChessBoard.blackHasWon,
+   pawn promotion (Done), king castling (Done)
+j: record game (save to file (Done), give option to title game at end of game (Done), screen displaying saved games)
+-----
+05/01
+g: AI button (Has bugs), draw (Done) & resign (Done) buttons
+j: undo button, game playback
+-----
+05/02
+g:
+j:
+-----
